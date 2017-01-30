@@ -9,10 +9,13 @@ public void draw()
 fill((float)w,(float)w + 178,(float)w + 50);
 sierpinski(50,650,600);
 }
-public void mousePressed()//optional
+public void keyPressed()//optional
 {
-  if(mousePressed) {
+  if(keyCode == 40) {
     background(255);
+  }
+  else {
+    background(0);
   }
 }
 public void sierpinski(int x, int y, int len) 
