@@ -1,25 +1,28 @@
-int x = 0;
-int y = 0;
+double w = Math.random()*100;
 public void setup()
 {
-background(125);
+background(0);
 size(700,700);
 }
 public void draw()
 {
-fill(0,178,50);
-// triangle(350,150, 150, 550, 550, 550);
-triangle(350 +x,150+y,250+x,350+y, 450+x,350+y);
-triangle(250+ x, 350+y, 150+x, 550+y, 350+x, 550+y);
-triangle(450+x,350+y,350+x,550+y,550+x,550+y);
+fill((float)w,(float)w + 178,(float)w + 50);
+sierpinski(50,650,600);
 }
-public void mouseDragged()//optional
+public void mousePressed()//optional
 {
-
+  if(mousePressed) {
+    background(255);
+  }
 }
 public void sierpinski(int x, int y, int len) 
 {
-	if(len <= 20) {
-
-	}
+  if(len <= 20) {
+  triangle(x,y, x + len, y, (x + len/2), y - len);
+  }
+  else {
+   sierpinski(x, y, len/2);
+   sierpinski(x+len/2, y, len/2);
+   sierpinski(x+len/4, y - len/2, len/2);
+  }
 }
